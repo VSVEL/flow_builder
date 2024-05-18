@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Paper, Typography, Button } from '@mui/material';
+import { Box, Paper, Typography } from '@mui/material';
 
 const NodePanel: React.FC = () => {
   const onDragStart = (event: React.DragEvent, nodeType: string) => {
@@ -17,7 +17,7 @@ const NodePanel: React.FC = () => {
         draggable
         style={{ cursor: 'pointer', padding: '8px', border: '1px dashed #ddd', marginBottom: '8px' }}
       >
-        Text Node
+       Message
       </Box>
     </Paper>
   );

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, Paper, TextField, Typography } from '@mui/material';
+import React, { useState } from 'react';
+import { Paper, TextField, Typography } from '@mui/material';
 import { Node } from 'reactflow';
 
 interface SettingsPanelProps {
@@ -8,8 +8,14 @@ interface SettingsPanelProps {
 }
 
 const SettingsPanel: React.FC<SettingsPanelProps> = ({ element, updateNodeText }) => {
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    updateNodeText(element.id, event.target.value);
+  const [text, setText] = useState<string>(element.data.label);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setText(event.target.value);
+  };
+
+  const handleSave = () => {
+    updateNodeText(element.id, text);
   };
 
   return (
@@ -19,9 +25,10 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ element, updateNodeText }
       </Typography>
       <TextField
         label="Text"
-        value={element.data.label}
-        onChange={onChange}
+        value={text}
+        onChange={handleChange}
         fullWidth
+        onBlur={handleSave}
       />
     </Paper>
   );
