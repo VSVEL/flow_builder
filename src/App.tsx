@@ -21,6 +21,7 @@ import {
 import "./styles.css";
 import NodePanel from "./NodePanel";
 import SettingsPanel from "./SettingsPanel";
+import { CustomNode } from "./components/CustomNode";
 
 const initialNodes: Node[] = [];
 const initialEdges: Edge[] = [];
@@ -111,6 +112,7 @@ const App: React.FC = () => {
           <MiniMap />
           <Controls />
           <Background />
+          {/* <CustomNode data={selectedElement?.data}/> */}
         </ReactFlow>
       </Box>
       <Box width={250} padding={2} bgcolor="white" borderLeft="1px solid #ddd">
